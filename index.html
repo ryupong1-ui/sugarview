@@ -5,9 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Sugarview Cafe & Yum</title>
+
     <meta
         name="description"
-        content="Sugarview Cafe & Yum - Cafe • Food • Yum"
+        content="Sugarview Cafe & Yum • Cafe • Food • Yum"
     >
 
     <style>
@@ -28,23 +29,28 @@
                 "SF Pro Display",
                 "SF Pro Text",
                 "Segoe UI",
-                Arial,
                 sans-serif;
+
+            color: #1d1d1f;
 
             background:
                 radial-gradient(
-                    circle at 20% 0%,
-                    rgba(255, 255, 255, 0.9),
+                    circle at 15% 0%,
+                    rgba(255,255,255,.95),
+                    transparent 32%
+                ),
+                radial-gradient(
+                    circle at 100% 15%,
+                    rgba(220,225,235,.7),
                     transparent 35%
                 ),
                 linear-gradient(
                     135deg,
-                    #f5f5f7 0%,
-                    #ffffff 45%,
-                    #eef1f5 100%
+                    #f5f5f7,
+                    #ffffff,
+                    #eef1f5
                 );
 
-            color: #1d1d1f;
             min-height: 100vh;
         }
 
@@ -62,18 +68,24 @@
             top: 0;
             z-index: 1000;
 
-            width: 100%;
+            background: rgba(255,255,255,.72);
 
-            background: rgba(255, 255, 255, 0.72);
-            backdrop-filter: blur(22px) saturate(180%);
-            -webkit-backdrop-filter: blur(22px) saturate(180%);
+            backdrop-filter:
+                blur(24px)
+                saturate(180%);
 
-            border-bottom: 1px solid rgba(0, 0, 0, 0.07);
+            -webkit-backdrop-filter:
+                blur(24px)
+                saturate(180%);
+
+            border-bottom:
+                1px solid rgba(0,0,0,.07);
         }
 
         .nav-inner {
             max-width: 1180px;
             height: 70px;
+
             margin: auto;
             padding: 0 22px;
 
@@ -89,7 +101,8 @@
 
             font-size: 16px;
             font-weight: 700;
-            letter-spacing: -0.3px;
+
+            letter-spacing: -.3px;
         }
 
         .brand img {
@@ -97,48 +110,52 @@
             height: 42px;
 
             object-fit: contain;
+
             border-radius: 12px;
 
             background: #fff;
+
             box-shadow:
-                0 5px 20px rgba(0, 0, 0, 0.08);
+                0 5px 20px rgba(0,0,0,.08);
         }
 
         .nav-links {
             display: flex;
             align-items: center;
-            gap: 8px;
+            gap: 7px;
         }
 
         .nav-links a {
             padding: 10px 15px;
 
-            border-radius: 12px;
+            border-radius: 13px;
 
-            font-size: 14px;
             color: #555;
 
-            transition: 0.2s ease;
+            font-size: 14px;
+
+            transition: .2s ease;
         }
 
         .nav-links a:hover {
-            background: rgba(0, 0, 0, 0.06);
+            background: rgba(0,0,0,.06);
             color: #111;
         }
 
         .menu-button {
             display: none;
 
-            border: 0;
-            background: rgba(0, 0, 0, 0.06);
-
             width: 42px;
             height: 42px;
 
-            border-radius: 12px;
+            border: 0;
+            border-radius: 13px;
+
+            background: rgba(0,0,0,.06);
+
+            cursor: pointer;
 
             font-size: 20px;
-            cursor: pointer;
         }
 
         /* =========================
@@ -147,9 +164,12 @@
 
         .hero {
             max-width: 1180px;
+
             margin: auto;
 
-            padding: 85px 22px 70px;
+            padding:
+                85px 22px
+                75px;
 
             text-align: center;
         }
@@ -162,62 +182,33 @@
 
             border-radius: 42px;
 
-            background: rgba(255, 255, 255, 0.7);
+            background:
+                rgba(255,255,255,.75);
 
             box-shadow:
-                0 30px 80px rgba(0, 0, 0, 0.12);
+                0 30px 80px rgba(0,0,0,.12);
 
             margin-bottom: 30px;
         }
 
         .hero h1 {
-            font-size: clamp(38px, 7vw, 72px);
+            font-size:
+                clamp(38px, 7vw, 72px);
+
             line-height: 1.05;
 
             letter-spacing: -3px;
+
             font-weight: 800;
 
-            margin-bottom: 18px;
+            margin-bottom: 17px;
         }
 
-        .hero p {
-            font-size: 18px;
+        .hero-subtitle {
             color: #6e6e73;
 
-            margin-bottom: 25px;
-        }
-
-        .status {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-
-            padding: 9px 15px;
-
-            border-radius: 999px;
-
-            background: rgba(255, 255, 255, 0.72);
-            backdrop-filter: blur(15px);
-
-            border: 1px solid rgba(0, 0, 0, 0.07);
-
-            font-size: 14px;
-            font-weight: 600;
-        }
-
-        .status-dot {
-            width: 9px;
-            height: 9px;
-
-            border-radius: 50%;
-
-            background: #34c759;
-            box-shadow: 0 0 0 4px rgba(52, 199, 89, 0.12);
-        }
-
-        .status.closed .status-dot {
-            background: #ff3b30;
-            box-shadow: 0 0 0 4px rgba(255, 59, 48, 0.12);
+            font-size:
+                clamp(16px, 3vw, 20px);
         }
 
         /* =========================
@@ -226,90 +217,94 @@
 
         .section {
             max-width: 1180px;
+
             margin: auto;
 
-            padding: 30px 22px 80px;
+            padding:
+                30px 22px
+                80px;
         }
 
         .section-title {
             text-align: center;
+
             margin-bottom: 35px;
         }
 
         .section-title h2 {
-            font-size: clamp(28px, 5vw, 44px);
-            letter-spacing: -1.5px;
+            font-size:
+                clamp(30px, 5vw, 45px);
+
+            letter-spacing: -1.8px;
+
             margin-bottom: 9px;
         }
 
         .section-title p {
             color: #777;
+
             font-size: 15px;
         }
 
         /* =========================
-           PLATFORM GRID
+           PLATFORM
         ========================= */
 
         .platform-grid {
             display: grid;
 
             grid-template-columns:
-                repeat(3, minmax(0, 1fr));
+                repeat(3, minmax(0,1fr));
 
             gap: 18px;
         }
 
         .platform-card {
-            position: relative;
-
-            min-height: 185px;
-
             padding: 25px;
 
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
+            border-radius: 27px;
 
             background:
-                rgba(255, 255, 255, 0.68);
+                rgba(255,255,255,.68);
 
             border:
-                1px solid rgba(255, 255, 255, 0.8);
-
-            border-radius: 26px;
+                1px solid rgba(255,255,255,.9);
 
             box-shadow:
-                0 15px 45px rgba(0, 0, 0, 0.07);
+                0 18px 50px rgba(0,0,0,.075);
 
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
+            backdrop-filter:
+                blur(22px);
+
+            -webkit-backdrop-filter:
+                blur(22px);
 
             transition:
-                transform 0.25s ease,
-                box-shadow 0.25s ease;
+                transform .25s ease,
+                box-shadow .25s ease;
         }
 
         .platform-card:hover {
             transform: translateY(-5px);
 
             box-shadow:
-                0 25px 55px rgba(0, 0, 0, 0.12);
+                0 28px 65px rgba(0,0,0,.12);
         }
 
         .platform-icon {
-            width: 54px;
-            height: 54px;
+            width: 56px;
+            height: 56px;
 
-            border-radius: 16px;
+            border-radius: 17px;
 
             display: flex;
             align-items: center;
             justify-content: center;
 
-            background: rgba(0, 0, 0, 0.045);
+            background:
+                rgba(0,0,0,.045);
 
-            font-size: 27px;
+            font-size: 28px;
 
             overflow: hidden;
         }
@@ -323,45 +318,53 @@
             padding: 8px;
         }
 
-        .platform-info {
+        .platform-name {
             margin-top: 18px;
+
+            font-size: 20px;
+
+            font-weight: 700;
         }
 
-        .platform-info h3 {
-            font-size: 19px;
-            margin-bottom: 5px;
-        }
+        .platform-description {
+            margin-top: 6px;
 
-        .platform-info p {
             color: #777;
+
             font-size: 14px;
+
+            line-height: 1.5;
         }
 
         .platform-button {
-            margin-top: 20px;
+            display: flex;
 
-            display: inline-flex;
             align-items: center;
             justify-content: center;
 
             width: 100%;
+
+            margin-top: 20px;
 
             padding: 12px 15px;
 
             border-radius: 14px;
 
             background: #1d1d1f;
+
             color: #fff;
 
             font-size: 14px;
+
             font-weight: 600;
 
-            transition: 0.2s ease;
+            transition: .2s ease;
         }
 
         .platform-button:hover {
             background: #000;
-            transform: scale(0.99);
+
+            transform: scale(.99);
         }
 
         /* =========================
@@ -370,43 +373,52 @@
 
         .map-card {
             max-width: 760px;
+
             margin: auto;
 
-            padding: 30px;
+            padding: 32px;
+
+            text-align: center;
 
             border-radius: 28px;
 
             background:
-                rgba(255, 255, 255, 0.7);
+                rgba(255,255,255,.7);
 
             border:
-                1px solid rgba(255, 255, 255, 0.85);
+                1px solid rgba(255,255,255,.9);
 
             box-shadow:
-                0 20px 60px rgba(0, 0, 0, 0.08);
+                0 20px 60px rgba(0,0,0,.08);
 
-            text-align: center;
+            backdrop-filter:
+                blur(22px);
 
-            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter:
+                blur(22px);
         }
 
         .map-icon {
             font-size: 42px;
-            margin-bottom: 15px;
+
+            margin-bottom: 12px;
         }
 
         .map-card h3 {
             font-size: 22px;
+
             margin-bottom: 8px;
         }
 
         .map-card p {
             color: #777;
+
             margin-bottom: 22px;
         }
 
         .map-button {
             display: inline-flex;
+
             align-items: center;
             justify-content: center;
 
@@ -415,26 +427,12 @@
             border-radius: 15px;
 
             background: #1d1d1f;
+
             color: #fff;
 
-            font-weight: 600;
             font-size: 14px;
-        }
 
-        /* =========================
-           EMPTY STATE
-        ========================= */
-
-        .empty {
-            text-align: center;
-
-            padding: 40px 20px;
-
-            color: #777;
-
-            background: rgba(255, 255, 255, 0.55);
-
-            border-radius: 24px;
+            font-weight: 600;
         }
 
         /* =========================
@@ -442,18 +440,41 @@
         ========================= */
 
         footer {
-            padding: 45px 20px;
+            padding:
+                45px 20px
+                55px;
 
             text-align: center;
 
             color: #777;
 
             border-top:
-                1px solid rgba(0, 0, 0, 0.06);
+                1px solid rgba(0,0,0,.06);
+
+            font-size: 13px;
         }
 
         footer strong {
             color: #333;
+        }
+
+        /* =========================
+           EMPTY / ERROR
+        ========================= */
+
+        .empty {
+            grid-column: 1 / -1;
+
+            padding: 40px 20px;
+
+            text-align: center;
+
+            color: #777;
+
+            background:
+                rgba(255,255,255,.55);
+
+            border-radius: 24px;
         }
 
         /* =========================
@@ -480,9 +501,9 @@
             }
 
             .nav-links {
-                display: none;
-
                 position: absolute;
+
+                display: none;
 
                 top: 64px;
                 left: 12px;
@@ -494,14 +515,15 @@
                 align-items: stretch;
 
                 background:
-                    rgba(255, 255, 255, 0.92);
+                    rgba(255,255,255,.92);
 
                 border-radius: 20px;
 
                 box-shadow:
-                    0 20px 50px rgba(0, 0, 0, 0.12);
+                    0 20px 55px rgba(0,0,0,.12);
 
-                backdrop-filter: blur(25px);
+                backdrop-filter:
+                    blur(25px);
             }
 
             .nav-links.active {
@@ -509,12 +531,12 @@
             }
 
             .nav-links a {
-                padding: 13px 15px;
+                padding: 14px 15px;
             }
 
             .hero {
                 padding-top: 55px;
-                padding-bottom: 50px;
+                padding-bottom: 55px;
             }
 
             .hero-logo {
@@ -525,11 +547,7 @@
             }
 
             .hero h1 {
-                letter-spacing: -1.8px;
-            }
-
-            .hero p {
-                font-size: 16px;
+                letter-spacing: -2px;
             }
 
             .platform-grid {
@@ -540,15 +558,20 @@
                 min-height: auto;
             }
 
-            .section {
-                padding-bottom: 60px;
+            .map-card {
+                padding: 27px 20px;
+            }
+
+            .map-button {
+                width: 100%;
             }
         }
 
         @media (min-width: 801px) and (max-width: 1050px) {
+
             .platform-grid {
                 grid-template-columns:
-                    repeat(2, minmax(0, 1fr));
+                    repeat(2, minmax(0,1fr));
             }
         }
     </style>
@@ -561,15 +584,23 @@
     ========================= -->
 
     <header class="navbar">
+
         <div class="nav-inner">
 
-            <a href="#home" class="brand">
+            <a
+                href="#home"
+                class="brand"
+            >
+
                 <img
                     src="./Logo.jpg"
                     alt="Sugarview Cafe & Yum"
                 >
 
-                <span>Sugarview Cafe & Yum</span>
+                <span>
+                    Sugarview Cafe & Yum
+                </span>
+
             </a>
 
             <button
@@ -580,7 +611,10 @@
                 ☰
             </button>
 
-            <nav class="nav-links" id="navLinks">
+            <nav
+                class="nav-links"
+                id="navLinks"
+            >
 
                 <a href="#home">
                     หน้าหลัก
@@ -597,6 +631,7 @@
             </nav>
 
         </div>
+
     </header>
 
 
@@ -604,9 +639,12 @@
          HERO
     ========================= -->
 
-    <main id="home">
+    <main>
 
-        <section class="hero">
+        <section
+            class="hero"
+            id="home"
+        >
 
             <img
                 class="hero-logo"
@@ -618,20 +656,9 @@
                 Sugarview Cafe & Yum
             </h1>
 
-            <p>
+            <p class="hero-subtitle">
                 Cafe • Food • Yum
             </p>
-
-            <div
-                class="status"
-                id="shopStatus"
-            >
-                <span class="status-dot"></span>
-
-                <span id="statusText">
-                    กำลังโหลด...
-                </span>
-            </div>
 
         </section>
 
@@ -652,7 +679,7 @@
                 </h2>
 
                 <p>
-                    เลือกแพลตฟอร์มที่ต้องการสั่งอาหาร
+                    เลือกแพลตฟอร์มที่ต้องการ
                 </p>
 
             </div>
@@ -661,9 +688,11 @@
                 class="platform-grid"
                 id="platformGrid"
             >
+
                 <div class="empty">
-                    กำลังโหลดแพลตฟอร์ม...
+                    กำลังโหลด...
                 </div>
+
             </div>
 
         </section>
@@ -705,8 +734,8 @@
                 </p>
 
                 <a
-                    class="map-button"
                     id="mapButton"
+                    class="map-button"
                     href="#"
                     target="_blank"
                     rel="noopener noreferrer"
@@ -733,9 +762,7 @@
 
         <br>
 
-        <span>
-            Cafe • Food • Yum
-        </span>
+        Cafe • Food • Yum
 
     </footer>
 
@@ -743,7 +770,7 @@
     <script>
 
         /* =========================
-           HTML ESCAPE
+           ESCAPE HTML
         ========================= */
 
         function escapeHTML(value) {
@@ -759,51 +786,70 @@
 
 
         /* =========================
-           LOAD PLATFORM.JSON
+           LOAD JSON
         ========================= */
 
-        async function loadWebsiteData() {
+        async function loadData() {
+
+            const grid =
+                document.getElementById(
+                    "platformGrid"
+                );
 
             try {
 
-                const response = await fetch(
-                    "./platform.json",
-                    {
-                        cache: "no-store"
-                    }
-                );
+                const response =
+                    await fetch(
+                        "./platform.json",
+                        {
+                            cache: "no-store"
+                        }
+                    );
 
                 if (!response.ok) {
+
                     throw new Error(
-                        "ไม่สามารถโหลด platform.json ได้"
+                        "ไม่สามารถโหลด platform.json"
                     );
+
                 }
 
-                const data = await response.json();
+                const data =
+                    await response.json();
 
-                renderShop(data.shop);
+                /* ชื่อร้าน */
+
+                if (
+                    data.shop &&
+                    data.shop.name
+                ) {
+
+                    document.title =
+                        data.shop.name;
+
+                }
+
+
+                /* Platforms */
 
                 renderPlatforms(
                     data.platforms
                 );
 
-                renderGoogleMaps(
+
+                /* Google Maps */
+
+                renderMap(
                     data.google_maps
                 );
-
-                document.title =
-                    data.shop?.name ||
-                    "Sugarview Cafe & Yum";
 
             } catch (error) {
 
                 console.error(error);
 
-                document.getElementById(
-                    "platformGrid"
-                ).innerHTML = `
+                grid.innerHTML = `
                     <div class="empty">
-                        ไม่สามารถโหลดข้อมูลร้านได้
+                        ไม่สามารถโหลดข้อมูลได้
                         <br>
                         กรุณาตรวจสอบไฟล์ platform.json
                     </div>
@@ -815,44 +861,7 @@
 
 
         /* =========================
-           SHOP STATUS
-        ========================= */
-
-        function renderShop(shop) {
-
-            const status =
-                document.getElementById(
-                    "shopStatus"
-                );
-
-            const text =
-                document.getElementById(
-                    "statusText"
-                );
-
-            const isOpen =
-                shop?.open === true;
-
-            text.textContent =
-                isOpen
-                    ? (
-                        shop.open_text ||
-                        "เปิดให้บริการ"
-                    )
-                    : (
-                        shop.closed_text ||
-                        "ปิดให้บริการ"
-                    );
-
-            if (!isOpen) {
-                status.classList.add("closed");
-            }
-
-        }
-
-
-        /* =========================
-           PLATFORMS
+           RENDER PLATFORMS
         ========================= */
 
         function renderPlatforms(platforms) {
@@ -866,14 +875,15 @@
 
                 grid.innerHTML = `
                     <div class="empty">
-                        ยังไม่มีข้อมูลแพลตฟอร์ม
+                        ยังไม่มีแพลตฟอร์ม
                     </div>
                 `;
 
                 return;
+
             }
 
-            const enabledPlatforms =
+            const enabled =
                 Object.values(platforms)
                     .filter(
                         platform =>
@@ -881,19 +891,22 @@
                             platform.enabled === true
                     );
 
-            if (enabledPlatforms.length === 0) {
+
+            if (enabled.length === 0) {
 
                 grid.innerHTML = `
                     <div class="empty">
-                        ขณะนี้ยังไม่มีช่องทางสั่งอาหารออนไลน์
+                        ยังไม่มีช่องทางสั่งอาหาร
                     </div>
                 `;
 
                 return;
+
             }
 
+
             grid.innerHTML =
-                enabledPlatforms
+                enabled
                     .map(platform => {
 
                         const name =
@@ -906,20 +919,22 @@
                                 platform.description
                             );
 
-                        const icon =
-                            platform.icon || "🍽️";
-
                         const url =
                             escapeHTML(
                                 platform.url || "#"
                             );
 
+                        const icon =
+                            platform.icon ||
+                            "🍽️";
+
                         let iconHTML =
                             escapeHTML(icon);
 
+
                         /*
-                         * รองรับทั้ง Emoji
-                         * และรูปภาพจาก URL
+                         * ถ้า icon เป็น URL
+                         * สามารถใช้รูปภาพได้
                          */
 
                         if (
@@ -931,7 +946,9 @@
                                 icon.startsWith(
                                     "https://"
                                 ) ||
-                                icon.startsWith("./")
+                                icon.startsWith(
+                                    "./"
+                                )
                             )
                         ) {
 
@@ -943,6 +960,7 @@
                             `;
 
                         }
+
 
                         return `
 
@@ -959,17 +977,15 @@
                                     </div>
 
                                     <div
-                                        class="platform-info"
+                                        class="platform-name"
                                     >
+                                        ${name}
+                                    </div>
 
-                                        <h3>
-                                            ${name}
-                                        </h3>
-
-                                        <p>
-                                            ${description}
-                                        </p>
-
+                                    <div
+                                        class="platform-description"
+                                    >
+                                        ${description}
                                     </div>
 
                                 </div>
@@ -997,7 +1013,7 @@
            GOOGLE MAPS
         ========================= */
 
-        function renderGoogleMaps(map) {
+        function renderMap(map) {
 
             const button =
                 document.getElementById(
@@ -1011,9 +1027,6 @@
             ) {
 
                 button.href = map.url;
-
-                button.style.display =
-                    "inline-flex";
 
             } else {
 
@@ -1038,6 +1051,7 @@
             document.getElementById(
                 "navLinks"
             );
+
 
         menuButton.addEventListener(
             "click",
@@ -1073,7 +1087,7 @@
            START
         ========================= */
 
-        loadWebsiteData();
+        loadData();
 
     </script>
 
