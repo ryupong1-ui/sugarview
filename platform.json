@@ -28,10 +28,10 @@
 
         "shopeefood": {
             "name": "ShopeeFood",
-            "enabled": false,
+            "enabled": true,
             "icon": "🟠",
             "description": "สั่งอาหารผ่าน ShopeeFood",
-            "url": "https://shopeefood.co.th/"
+            "url": "https://shopee.co.th/universal-link/now-food/shop/10442580?deep_and_deferred=1&shareChannel=copy_link"
         },
 
         "foodpanda": {
