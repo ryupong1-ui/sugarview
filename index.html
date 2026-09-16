@@ -1,0 +1,703 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0"
+    >
+    <meta name="theme-color" content="#f5f5f7">
+    <meta
+        name="description"
+        content="Sugarview Cafe & Yum — Cafe & Food"
+    >
+    <title>Sugarview Cafe & Yum</title>
+    <style>
+        /* =========================
+           RESET
+        ========================= */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        html {
+            scroll-behavior: smooth;
+        }
+        body {
+            font-family:
+                -apple-system,
+                BlinkMacSystemFont,
+                "SF Pro Display",
+                "SF Pro Text",
+                "Segoe UI",
+                sans-serif;
+            background:
+                radial-gradient(
+                    circle at top,
+                    #ffffff 0%,
+                    #f5f5f7 45%,
+                    #eeeeef 100%
+                );
+            color: #1d1d1f;
+            min-height: 100vh;
+        }
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+        /* =========================
+           NAVBAR
+        ========================= */
+        .navbar {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            width: 100%;
+            background:
+                rgba(255, 255, 255, 0.72);
+            backdrop-filter: blur(22px);
+            -webkit-backdrop-filter: blur(22px);
+            border-bottom:
+                1px solid rgba(0, 0, 0, 0.06);
+        }
+        .nav-inner {
+            width: min(1100px, calc(100% - 32px));
+            height: 64px;
+            margin: auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .nav-brand {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: 700;
+            font-size: 15px;
+        }
+        .nav-logo {
+            width: 36px;
+            height: 36px;
+            border-radius: 11px;
+            overflow: hidden;
+            background: #fff;
+        }
+        .nav-logo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .menu-btn {
+            width: 42px;
+            height: 42px;
+            border: 0;
+            border-radius: 50%;
+            background: #f2f2f7;
+            font-size: 20px;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+        .menu-btn:hover {
+            transform: scale(1.05);
+        }
+        /* =========================
+           MOBILE MENU
+        ========================= */
+        .mobile-menu {
+            display: none;
+            padding: 10px 16px 18px;
+            background:
+                rgba(255,255,255,.88);
+            backdrop-filter: blur(20px);
+        }
+        .mobile-menu.active {
+            display: block;
+        }
+        .mobile-menu a {
+            display: block;
+            padding: 14px;
+            border-radius: 14px;
+            font-size: 15px;
+            transition: .2s;
+        }
+        .mobile-menu a:hover {
+            background: #f2f2f7;
+        }
+        /* =========================
+           MAIN
+        ========================= */
+        main {
+            width: min(900px, calc(100% - 32px));
+            margin: auto;
+        }
+        /* =========================
+           HERO
+        ========================= */
+        .hero {
+            text-align: center;
+            padding:
+                70px 0
+                45px;
+        }
+        .main-logo {
+            width: 125px;
+            height: 125px;
+            margin: auto;
+            border-radius: 34px;
+            overflow: hidden;
+            background: #fff;
+            box-shadow:
+                0 20px 50px
+                rgba(0,0,0,.12);
+        }
+        .main-logo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .hero h1 {
+            margin-top: 25px;
+            font-size:
+                clamp(30px, 7vw, 52px);
+            line-height: 1.05;
+            letter-spacing: -1.8px;
+            font-weight: 750;
+        }
+        .hero p {
+            margin-top: 12px;
+            color: #6e6e73;
+            font-size: 16px;
+        }
+        /* =========================
+           SHOP STATUS
+        ========================= */
+        .shop-status {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            margin-top: 18px;
+            padding:
+                8px 15px;
+            border-radius: 999px;
+            background: rgba(255,255,255,.9);
+            box-shadow:
+                0 6px 20px
+                rgba(0,0,0,.06);
+            font-size: 13px;
+        }
+        .status-dot {
+            width: 9px;
+            height: 9px;
+            border-radius: 50%;
+            background: #34c759;
+        }
+        /* =========================
+           SECTION
+        ========================= */
+        .section {
+            margin-top: 20px;
+        }
+        .section-title {
+            font-size: 21px;
+            font-weight: 700;
+            margin-bottom: 14px;
+        }
+        .section-subtitle {
+            color: #6e6e73;
+            font-size: 14px;
+            margin-top: -8px;
+            margin-bottom: 16px;
+        }
+        /* =========================
+           PLATFORM GRID
+        ========================= */
+        .platform-grid {
+            display: grid;
+            grid-template-columns:
+                repeat(2, minmax(0, 1fr));
+            gap: 13px;
+        }
+        .platform-card {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 17px;
+            background:
+                rgba(255,255,255,.82);
+            border:
+                1px solid
+                rgba(0,0,0,.06);
+            border-radius: 21px;
+            box-shadow:
+                0 7px 25px
+                rgba(0,0,0,.055);
+            transition:
+                transform .2s,
+                box-shadow .2s;
+        }
+        .platform-card:hover {
+            transform: translateY(-3px);
+            box-shadow:
+                0 14px 35px
+                rgba(0,0,0,.10);
+        }
+        .platform-left {
+            display: flex;
+            align-items: center;
+            gap: 13px;
+        }
+        .platform-icon {
+            width: 48px;
+            height: 48px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 15px;
+            background: #f2f2f7;
+            font-size: 22px;
+        }
+        .platform-name {
+            font-weight: 650;
+            font-size: 15px;
+        }
+        .platform-description {
+            color: #8e8e93;
+            font-size: 12px;
+            margin-top: 3px;
+        }
+        .arrow {
+            color: #8e8e93;
+            font-size: 23px;
+        }
+        /* =========================
+           MAP
+        ========================= */
+        .map-card {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 19px;
+            background:
+                rgba(255,255,255,.85);
+            border-radius: 21px;
+            box-shadow:
+                0 7px 25px
+                rgba(0,0,0,.055);
+            transition: .2s;
+        }
+        .map-card:hover {
+            transform: translateY(-2px);
+        }
+        .map-left {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+        }
+        .map-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 15px;
+            background: #f2f2f7;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 22px;
+        }
+        /* =========================
+           EMPTY
+        ========================= */
+        .empty {
+            grid-column: 1 / -1;
+            text-align: center;
+            padding: 35px;
+            color: #8e8e93;
+            background:
+                rgba(255,255,255,.7);
+            border-radius: 20px;
+        }
+        /* =========================
+           FOOTER
+        ========================= */
+        footer {
+            text-align: center;
+            padding:
+                55px 0
+                30px;
+            color: #8e8e93;
+            font-size: 12px;
+        }
+        /* =========================
+           RESPONSIVE
+        ========================= */
+        @media (max-width: 650px) {
+            .nav-brand span {
+                max-width: 190px;
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+            }
+            .hero {
+                padding-top: 50px;
+            }
+            .main-logo {
+                width: 105px;
+                height: 105px;
+                border-radius: 28px;
+            }
+            .platform-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- =========================
+         NAVIGATION
+    ========================== -->
+    <nav class="navbar">
+        <div class="nav-inner">
+            <a
+                href="#top"
+                class="nav-brand"
+            >
+                <div class="nav-logo">
+                    <img
+                        src="./assets/logo.png"
+                        alt="Sugarview Cafe & Yum"
+                    >
+                </div>
+                <span>
+                    Sugarview Cafe & Yum
+                </span>
+            </a>
+            <button
+                class="menu-btn"
+                id="menuBtn"
+                aria-label="เปิดเมนู"
+            >
+                ☰
+            </button>
+        </div>
+        <div
+            class="mobile-menu"
+            id="mobileMenu"
+        >
+            <a href="#order">
+                สั่งอาหาร
+            </a>
+            <a href="#location">
+                พิกัดร้าน
+            </a>
+        </div>
+    </nav>
+    <!-- =========================
+         CONTENT
+    ========================== -->
+    <main id="top">
+        <!-- HERO -->
+        <section class="hero">
+            <div class="main-logo">
+                <img
+                    src="./assets/logo.png"
+                    alt="Sugarview Cafe & Yum Logo"
+                >
+            </div>
+            <h1>
+                Sugarview<br>
+                Cafe & Yum
+            </h1>
+            <p>
+                Cafe • Food • Yum
+            </p>
+            <div class="shop-status">
+                <span
+                    class="status-dot"
+                    id="statusDot"
+                ></span>
+                <span id="shopStatus">
+                    กำลังโหลด...
+                </span>
+            </div>
+        </section>
+        <!-- ORDER -->
+        <section
+            class="section"
+            id="order"
+        >
+            <div class="section-title">
+                สั่งอาหาร
+            </div>
+            <div class="section-subtitle">
+                เลือกแพลตฟอร์มที่ต้องการสั่งอาหาร
+            </div>
+            <div
+                class="platform-grid"
+                id="platformGrid"
+            >
+                <div class="empty">
+                    กำลังโหลดช่องทางสั่งอาหาร...
+                </div>
+            </div>
+        </section>
+        <!-- LOCATION -->
+        <section
+            class="section"
+            id="location"
+        >
+            <div class="section-title">
+                พิกัดร้าน
+            </div>
+            <a
+                href="#"
+                id="mapLink"
+                class="map-card"
+                target="_blank"
+                rel="noopener"
+            >
+                <div class="map-left">
+                    <div class="map-icon">
+                        📍
+                    </div>
+                    <div>
+                        <div class="platform-name">
+                            Google Maps
+                        </div>
+                        <div class="platform-description">
+                            ดูตำแหน่งร้าน
+                        </div>
+                    </div>
+                </div>
+                <div class="arrow">
+                    ›
+                </div>
+            </a>
+        </section>
+        <!-- FOOTER -->
+        <footer>
+            ©
+            <span id="year"></span>
+            Sugarview Cafe & Yum
+        </footer>
+    </main>
+    <script>
+        /* =========================
+           PLATFORM ICONS
+        ========================== */
+        const platformIcons = {
+            lineman: "🟢",
+            grabfood: "🟩",
+            shopeefood: "🟠",
+            foodpanda: "🐼"
+        };
+        /* =========================
+           LOAD JSON
+        ========================== */
+        async function loadShopData() {
+            try {
+                const response =
+                    await fetch("./platform.json", {
+                        cache: "no-store"
+                    });
+                if (!response.ok) {
+                    throw new Error(
+                        "Cannot load platform.json"
+                    );
+                }
+                const data =
+                    await response.json();
+                /* =========================
+                   SHOP
+                ========================== */
+                const shop =
+                    data.shop || {};
+                const statusText =
+                    document.getElementById(
+                        "shopStatus"
+                    );
+                const statusDot =
+                    document.getElementById(
+                        "statusDot"
+                    );
+                if (shop.open === true) {
+                    statusText.textContent =
+                        shop.open_text ||
+                        "เปิดให้บริการ";
+                    statusDot.style.background =
+                        "#34c759";
+                } else {
+                    statusText.textContent =
+                        shop.closed_text ||
+                        "ปิดให้บริการ";
+                    statusDot.style.background =
+                        "#ff3b30";
+                }
+                /* =========================
+                   GOOGLE MAPS
+                ========================== */
+                const map =
+                    data.google_maps || {};
+                const mapLink =
+                    document.getElementById(
+                        "mapLink"
+                    );
+                if (
+                    map.enabled === true &&
+                    map.url
+                ) {
+                    mapLink.href =
+                        map.url;
+                } else {
+                    mapLink.style.display =
+                        "none";
+                }
+                /* =========================
+                   PLATFORMS
+                ========================== */
+                const grid =
+                    document.getElementById(
+                        "platformGrid"
+                    );
+                grid.innerHTML = "";
+                const platforms =
+                    data.platforms || {};
+                let enabledCount = 0;
+                Object.entries(platforms)
+                    .forEach(
+                        ([key, platform]) => {
+                            /*
+                             * ถ้า enabled = false
+                             * จะไม่แสดงบนเว็บไซต์
+                             */
+                            if (
+                                platform.enabled !== true
+                            ) {
+                                return;
+                            }
+                            /*
+                             * ต้องมี URL
+                             */
+                            if (!platform.url) {
+                                return;
+                            }
+                            enabledCount++;
+                            const card =
+                                document.createElement(
+                                    "a"
+                                );
+                            card.className =
+                                "platform-card";
+                            card.href =
+                                platform.url;
+                            card.target =
+                                "_blank";
+                            card.rel =
+                                "noopener";
+                            const icon =
+                                platform.icon ||
+                                platformIcons[key] ||
+                                "🍴";
+                            card.innerHTML = `
+                                <div class="platform-left">
+                                    <div class="platform-icon">
+                                        ${icon}
+                                    </div>
+                                    <div>
+                                        <div class="platform-name">
+                                            ${escapeHTML(
+                                                platform.name ||
+                                                key
+                                            )}
+                                        </div>
+                                        <div class="platform-description">
+                                            ${escapeHTML(
+                                                platform.description ||
+                                                "สั่งอาหาร"
+                                            )}
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="arrow">
+                                    ›
+                                </div>
+                            `;
+                            grid.appendChild(card);
+                        }
+                    );
+                if (enabledCount === 0) {
+                    grid.innerHTML = `
+                        <div class="empty">
+                            ขณะนี้ยังไม่มี
+                            ช่องทางสั่งอาหาร
+                        </div>
+                    `;
+                }
+            } catch (error) {
+                console.error(error);
+                document.getElementById(
+                    "platformGrid"
+                ).innerHTML = `
+                    <div class="empty">
+                        ไม่สามารถโหลดข้อมูลร้านได้
+                    </div>
+                `;
+            }
+        }
+        /* =========================
+           SECURITY
+        ========================== */
+        function escapeHTML(value) {
+            return String(value)
+                .replaceAll("&", "&amp;")
+                .replaceAll("<", "&lt;")
+                .replaceAll(">", "&gt;")
+                .replaceAll('"', "&quot;")
+                .replaceAll("'", "&#039;");
+        }
+        /* =========================
+           MENU
+        ========================== */
+        const menuBtn =
+            document.getElementById(
+                "menuBtn"
+            );
+        const mobileMenu =
+            document.getElementById(
+                "mobileMenu"
+            );
+        menuBtn.addEventListener(
+            "click",
+            () => {
+                mobileMenu.classList.toggle(
+                    "active"
+                );
+            }
+        );
+        document
+            .querySelectorAll(
+                ".mobile-menu a"
+            )
+            .forEach(link => {
+                link.addEventListener(
+                    "click",
+                    () => {
+                        mobileMenu.classList.remove(
+                            "active"
+                        );
+                    }
+                );
+            });
+        /* =========================
+           YEAR
+        ========================== */
+        document.getElementById(
+            "year"
+        ).textContent =
+            new Date().getFullYear();
+        /* =========================
+           START
+        ========================== */
+        loadShopData();
+    </script>
+</body>
+</html>
