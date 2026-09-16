@@ -2,28 +2,25 @@
 <html lang="th">
 <head>
     <meta charset="UTF-8">
-    <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1.0, maximum-scale=1.0"
-    >
-    <meta name="theme-color" content="#f5f5f7">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Sugarview Cafe & Yum</title>
     <meta
         name="description"
-        content="Sugarview Cafe & Yum — Cafe & Food"
+        content="Sugarview Cafe & Yum - Cafe • Food • Yum"
     >
-    <title>Sugarview Cafe & Yum</title>
+
     <style>
-        /* =========================
-           RESET
-        ========================= */
         * {
+            box-sizing: border-box;
             margin: 0;
             padding: 0;
-            box-sizing: border-box;
         }
+
         html {
             scroll-behavior: smooth;
         }
+
         body {
             font-family:
                 -apple-system,
@@ -31,673 +28,1054 @@
                 "SF Pro Display",
                 "SF Pro Text",
                 "Segoe UI",
+                Arial,
                 sans-serif;
+
             background:
                 radial-gradient(
-                    circle at top,
-                    #ffffff 0%,
-                    #f5f5f7 45%,
-                    #eeeeef 100%
+                    circle at 20% 0%,
+                    rgba(255, 255, 255, 0.9),
+                    transparent 35%
+                ),
+                linear-gradient(
+                    135deg,
+                    #f5f5f7 0%,
+                    #ffffff 45%,
+                    #eef1f5 100%
                 );
+
             color: #1d1d1f;
             min-height: 100vh;
         }
+
         a {
             color: inherit;
             text-decoration: none;
         }
+
         /* =========================
            NAVBAR
         ========================= */
+
         .navbar {
             position: sticky;
             top: 0;
-            z-index: 100;
+            z-index: 1000;
+
             width: 100%;
-            background:
-                rgba(255, 255, 255, 0.72);
-            backdrop-filter: blur(22px);
-            -webkit-backdrop-filter: blur(22px);
-            border-bottom:
-                1px solid rgba(0, 0, 0, 0.06);
+
+            background: rgba(255, 255, 255, 0.72);
+            backdrop-filter: blur(22px) saturate(180%);
+            -webkit-backdrop-filter: blur(22px) saturate(180%);
+
+            border-bottom: 1px solid rgba(0, 0, 0, 0.07);
         }
+
         .nav-inner {
-            width: min(1100px, calc(100% - 32px));
-            height: 64px;
+            max-width: 1180px;
+            height: 70px;
             margin: auto;
+            padding: 0 22px;
+
             display: flex;
             align-items: center;
             justify-content: space-between;
         }
-        .nav-brand {
+
+        .brand {
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 11px;
+
+            font-size: 16px;
             font-weight: 700;
-            font-size: 15px;
+            letter-spacing: -0.3px;
         }
-        .nav-logo {
-            width: 36px;
-            height: 36px;
-            border-radius: 11px;
-            overflow: hidden;
-            background: #fff;
-        }
-        .nav-logo img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-        .menu-btn {
+
+        .brand img {
             width: 42px;
             height: 42px;
+
+            object-fit: contain;
+            border-radius: 12px;
+
+            background: #fff;
+            box-shadow:
+                0 5px 20px rgba(0, 0, 0, 0.08);
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .nav-links a {
+            padding: 10px 15px;
+
+            border-radius: 12px;
+
+            font-size: 14px;
+            color: #555;
+
+            transition: 0.2s ease;
+        }
+
+        .nav-links a:hover {
+            background: rgba(0, 0, 0, 0.06);
+            color: #111;
+        }
+
+        .menu-button {
+            display: none;
+
             border: 0;
-            border-radius: 50%;
-            background: #f2f2f7;
+            background: rgba(0, 0, 0, 0.06);
+
+            width: 42px;
+            height: 42px;
+
+            border-radius: 12px;
+
             font-size: 20px;
             cursor: pointer;
-            transition: 0.2s;
         }
-        .menu-btn:hover {
-            transform: scale(1.05);
-        }
-        /* =========================
-           MOBILE MENU
-        ========================= */
-        .mobile-menu {
-            display: none;
-            padding: 10px 16px 18px;
-            background:
-                rgba(255,255,255,.88);
-            backdrop-filter: blur(20px);
-        }
-        .mobile-menu.active {
-            display: block;
-        }
-        .mobile-menu a {
-            display: block;
-            padding: 14px;
-            border-radius: 14px;
-            font-size: 15px;
-            transition: .2s;
-        }
-        .mobile-menu a:hover {
-            background: #f2f2f7;
-        }
-        /* =========================
-           MAIN
-        ========================= */
-        main {
-            width: min(900px, calc(100% - 32px));
-            margin: auto;
-        }
+
         /* =========================
            HERO
         ========================= */
+
         .hero {
-            text-align: center;
-            padding:
-                70px 0
-                45px;
-        }
-        .main-logo {
-            width: 125px;
-            height: 125px;
+            max-width: 1180px;
             margin: auto;
-            border-radius: 34px;
-            overflow: hidden;
-            background: #fff;
+
+            padding: 85px 22px 70px;
+
+            text-align: center;
+        }
+
+        .hero-logo {
+            width: min(220px, 55vw);
+            height: min(220px, 55vw);
+
+            object-fit: contain;
+
+            border-radius: 42px;
+
+            background: rgba(255, 255, 255, 0.7);
+
             box-shadow:
-                0 20px 50px
-                rgba(0,0,0,.12);
+                0 30px 80px rgba(0, 0, 0, 0.12);
+
+            margin-bottom: 30px;
         }
-        .main-logo img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
+
         .hero h1 {
-            margin-top: 25px;
-            font-size:
-                clamp(30px, 7vw, 52px);
+            font-size: clamp(38px, 7vw, 72px);
             line-height: 1.05;
-            letter-spacing: -1.8px;
-            font-weight: 750;
+
+            letter-spacing: -3px;
+            font-weight: 800;
+
+            margin-bottom: 18px;
         }
+
         .hero p {
-            margin-top: 12px;
+            font-size: 18px;
             color: #6e6e73;
-            font-size: 16px;
+
+            margin-bottom: 25px;
         }
-        /* =========================
-           SHOP STATUS
-        ========================= */
-        .shop-status {
+
+        .status {
             display: inline-flex;
             align-items: center;
             gap: 8px;
-            margin-top: 18px;
-            padding:
-                8px 15px;
+
+            padding: 9px 15px;
+
             border-radius: 999px;
-            background: rgba(255,255,255,.9);
-            box-shadow:
-                0 6px 20px
-                rgba(0,0,0,.06);
-            font-size: 13px;
+
+            background: rgba(255, 255, 255, 0.72);
+            backdrop-filter: blur(15px);
+
+            border: 1px solid rgba(0, 0, 0, 0.07);
+
+            font-size: 14px;
+            font-weight: 600;
         }
+
         .status-dot {
             width: 9px;
             height: 9px;
+
             border-radius: 50%;
+
             background: #34c759;
+            box-shadow: 0 0 0 4px rgba(52, 199, 89, 0.12);
         }
+
+        .status.closed .status-dot {
+            background: #ff3b30;
+            box-shadow: 0 0 0 4px rgba(255, 59, 48, 0.12);
+        }
+
         /* =========================
            SECTION
         ========================= */
+
         .section {
-            margin-top: 20px;
+            max-width: 1180px;
+            margin: auto;
+
+            padding: 30px 22px 80px;
         }
+
         .section-title {
-            font-size: 21px;
-            font-weight: 700;
-            margin-bottom: 14px;
+            text-align: center;
+            margin-bottom: 35px;
         }
-        .section-subtitle {
-            color: #6e6e73;
-            font-size: 14px;
-            margin-top: -8px;
-            margin-bottom: 16px;
+
+        .section-title h2 {
+            font-size: clamp(28px, 5vw, 44px);
+            letter-spacing: -1.5px;
+            margin-bottom: 9px;
         }
+
+        .section-title p {
+            color: #777;
+            font-size: 15px;
+        }
+
         /* =========================
            PLATFORM GRID
         ========================= */
+
         .platform-grid {
             display: grid;
+
             grid-template-columns:
-                repeat(2, minmax(0, 1fr));
-            gap: 13px;
+                repeat(3, minmax(0, 1fr));
+
+            gap: 18px;
         }
+
         .platform-card {
+            position: relative;
+
+            min-height: 185px;
+
+            padding: 25px;
+
             display: flex;
-            align-items: center;
+            flex-direction: column;
             justify-content: space-between;
-            padding: 17px;
+
             background:
-                rgba(255,255,255,.82);
+                rgba(255, 255, 255, 0.68);
+
             border:
-                1px solid
-                rgba(0,0,0,.06);
-            border-radius: 21px;
+                1px solid rgba(255, 255, 255, 0.8);
+
+            border-radius: 26px;
+
             box-shadow:
-                0 7px 25px
-                rgba(0,0,0,.055);
+                0 15px 45px rgba(0, 0, 0, 0.07);
+
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+
             transition:
-                transform .2s,
-                box-shadow .2s;
+                transform 0.25s ease,
+                box-shadow 0.25s ease;
         }
+
         .platform-card:hover {
-            transform: translateY(-3px);
+            transform: translateY(-5px);
+
             box-shadow:
-                0 14px 35px
-                rgba(0,0,0,.10);
+                0 25px 55px rgba(0, 0, 0, 0.12);
         }
-        .platform-left {
-            display: flex;
-            align-items: center;
-            gap: 13px;
-        }
+
         .platform-icon {
-            width: 48px;
-            height: 48px;
+            width: 54px;
+            height: 54px;
+
+            border-radius: 16px;
+
             display: flex;
             align-items: center;
             justify-content: center;
-            border-radius: 15px;
-            background: #f2f2f7;
-            font-size: 22px;
+
+            background: rgba(0, 0, 0, 0.045);
+
+            font-size: 27px;
+
+            overflow: hidden;
         }
-        .platform-name {
-            font-weight: 650;
-            font-size: 15px;
+
+        .platform-icon img {
+            width: 100%;
+            height: 100%;
+
+            object-fit: contain;
+
+            padding: 8px;
         }
-        .platform-description {
-            color: #8e8e93;
-            font-size: 12px;
-            margin-top: 3px;
+
+        .platform-info {
+            margin-top: 18px;
         }
-        .arrow {
-            color: #8e8e93;
-            font-size: 23px;
+
+        .platform-info h3 {
+            font-size: 19px;
+            margin-bottom: 5px;
         }
+
+        .platform-info p {
+            color: #777;
+            font-size: 14px;
+        }
+
+        .platform-button {
+            margin-top: 20px;
+
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+
+            width: 100%;
+
+            padding: 12px 15px;
+
+            border-radius: 14px;
+
+            background: #1d1d1f;
+            color: #fff;
+
+            font-size: 14px;
+            font-weight: 600;
+
+            transition: 0.2s ease;
+        }
+
+        .platform-button:hover {
+            background: #000;
+            transform: scale(0.99);
+        }
+
         /* =========================
            MAP
         ========================= */
+
         .map-card {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 19px;
+            max-width: 760px;
+            margin: auto;
+
+            padding: 30px;
+
+            border-radius: 28px;
+
             background:
-                rgba(255,255,255,.85);
-            border-radius: 21px;
+                rgba(255, 255, 255, 0.7);
+
+            border:
+                1px solid rgba(255, 255, 255, 0.85);
+
             box-shadow:
-                0 7px 25px
-                rgba(0,0,0,.055);
-            transition: .2s;
+                0 20px 60px rgba(0, 0, 0, 0.08);
+
+            text-align: center;
+
+            backdrop-filter: blur(20px);
         }
-        .map-card:hover {
-            transform: translateY(-2px);
-        }
-        .map-left {
-            display: flex;
-            align-items: center;
-            gap: 14px;
-        }
+
         .map-icon {
-            width: 48px;
-            height: 48px;
-            border-radius: 15px;
-            background: #f2f2f7;
-            display: flex;
+            font-size: 42px;
+            margin-bottom: 15px;
+        }
+
+        .map-card h3 {
+            font-size: 22px;
+            margin-bottom: 8px;
+        }
+
+        .map-card p {
+            color: #777;
+            margin-bottom: 22px;
+        }
+
+        .map-button {
+            display: inline-flex;
             align-items: center;
             justify-content: center;
-            font-size: 22px;
+
+            padding: 13px 24px;
+
+            border-radius: 15px;
+
+            background: #1d1d1f;
+            color: #fff;
+
+            font-weight: 600;
+            font-size: 14px;
         }
+
         /* =========================
-           EMPTY
+           EMPTY STATE
         ========================= */
+
         .empty {
-            grid-column: 1 / -1;
             text-align: center;
-            padding: 35px;
-            color: #8e8e93;
-            background:
-                rgba(255,255,255,.7);
-            border-radius: 20px;
+
+            padding: 40px 20px;
+
+            color: #777;
+
+            background: rgba(255, 255, 255, 0.55);
+
+            border-radius: 24px;
         }
+
         /* =========================
            FOOTER
         ========================= */
+
         footer {
+            padding: 45px 20px;
+
             text-align: center;
-            padding:
-                55px 0
-                30px;
-            color: #8e8e93;
-            font-size: 12px;
+
+            color: #777;
+
+            border-top:
+                1px solid rgba(0, 0, 0, 0.06);
         }
+
+        footer strong {
+            color: #333;
+        }
+
         /* =========================
-           RESPONSIVE
+           MOBILE
         ========================= */
-        @media (max-width: 650px) {
-            .nav-brand span {
-                max-width: 190px;
-                white-space: nowrap;
-                overflow: hidden;
-                text-overflow: ellipsis;
+
+        @media (max-width: 800px) {
+
+            .nav-inner {
+                height: 64px;
             }
+
+            .brand {
+                font-size: 14px;
+            }
+
+            .brand img {
+                width: 38px;
+                height: 38px;
+            }
+
+            .menu-button {
+                display: block;
+            }
+
+            .nav-links {
+                display: none;
+
+                position: absolute;
+
+                top: 64px;
+                left: 12px;
+                right: 12px;
+
+                padding: 10px;
+
+                flex-direction: column;
+                align-items: stretch;
+
+                background:
+                    rgba(255, 255, 255, 0.92);
+
+                border-radius: 20px;
+
+                box-shadow:
+                    0 20px 50px rgba(0, 0, 0, 0.12);
+
+                backdrop-filter: blur(25px);
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .nav-links a {
+                padding: 13px 15px;
+            }
+
             .hero {
-                padding-top: 50px;
+                padding-top: 55px;
+                padding-bottom: 50px;
             }
-            .main-logo {
-                width: 105px;
-                height: 105px;
-                border-radius: 28px;
+
+            .hero-logo {
+                width: 180px;
+                height: 180px;
+
+                border-radius: 32px;
             }
+
+            .hero h1 {
+                letter-spacing: -1.8px;
+            }
+
+            .hero p {
+                font-size: 16px;
+            }
+
             .platform-grid {
                 grid-template-columns: 1fr;
+            }
+
+            .platform-card {
+                min-height: auto;
+            }
+
+            .section {
+                padding-bottom: 60px;
+            }
+        }
+
+        @media (min-width: 801px) and (max-width: 1050px) {
+            .platform-grid {
+                grid-template-columns:
+                    repeat(2, minmax(0, 1fr));
             }
         }
     </style>
 </head>
+
 <body>
+
     <!-- =========================
-         NAVIGATION
-    ========================== -->
-    <nav class="navbar">
+         NAVBAR
+    ========================= -->
+
+    <header class="navbar">
         <div class="nav-inner">
-            <a
-                href="#top"
-                class="nav-brand"
-            >
-                <div class="nav-logo">
-                    <img
-                        src="./assets/logo.png"
-                        alt="Sugarview Cafe & Yum"
-                    >
-                </div>
-                <span>
-                    Sugarview Cafe & Yum
-                </span>
+
+            <a href="#home" class="brand">
+                <img
+                    src="./Logo.JPEG"
+                    alt="Sugarview Cafe & Yum"
+                >
+
+                <span>Sugarview Cafe & Yum</span>
             </a>
+
             <button
-                class="menu-btn"
-                id="menuBtn"
+                class="menu-button"
+                id="menuButton"
                 aria-label="เปิดเมนู"
             >
                 ☰
             </button>
+
+            <nav class="nav-links" id="navLinks">
+
+                <a href="#home">
+                    หน้าหลัก
+                </a>
+
+                <a href="#order">
+                    สั่งอาหาร
+                </a>
+
+                <a href="#location">
+                    พิกัดร้าน
+                </a>
+
+            </nav>
+
         </div>
-        <div
-            class="mobile-menu"
-            id="mobileMenu"
-        >
-            <a href="#order">
-                สั่งอาหาร
-            </a>
-            <a href="#location">
-                พิกัดร้าน
-            </a>
-        </div>
-    </nav>
+    </header>
+
+
     <!-- =========================
-         CONTENT
-    ========================== -->
-    <main id="top">
-        <!-- HERO -->
+         HERO
+    ========================= -->
+
+    <main id="home">
+
         <section class="hero">
-            <div class="main-logo">
-                <img
-                    src="./assets/logo.png"
-                    alt="Sugarview Cafe & Yum Logo"
-                >
-            </div>
+
+            <img
+                class="hero-logo"
+                src="./Logo.JPEG"
+                alt="Sugarview Cafe & Yum Logo"
+            >
+
             <h1>
-                Sugarview<br>
-                Cafe & Yum
+                Sugarview Cafe & Yum
             </h1>
+
             <p>
                 Cafe • Food • Yum
             </p>
-            <div class="shop-status">
-                <span
-                    class="status-dot"
-                    id="statusDot"
-                ></span>
-                <span id="shopStatus">
+
+            <div
+                class="status"
+                id="shopStatus"
+            >
+                <span class="status-dot"></span>
+
+                <span id="statusText">
                     กำลังโหลด...
                 </span>
             </div>
+
         </section>
-        <!-- ORDER -->
+
+
+        <!-- =========================
+             ORDER
+        ========================= -->
+
         <section
             class="section"
             id="order"
         >
+
             <div class="section-title">
-                สั่งอาหาร
+
+                <h2>
+                    สั่งอาหาร
+                </h2>
+
+                <p>
+                    เลือกแพลตฟอร์มที่ต้องการสั่งอาหาร
+                </p>
+
             </div>
-            <div class="section-subtitle">
-                เลือกแพลตฟอร์มที่ต้องการสั่งอาหาร
-            </div>
+
             <div
                 class="platform-grid"
                 id="platformGrid"
             >
                 <div class="empty">
-                    กำลังโหลดช่องทางสั่งอาหาร...
+                    กำลังโหลดแพลตฟอร์ม...
                 </div>
             </div>
+
         </section>
-        <!-- LOCATION -->
+
+
+        <!-- =========================
+             LOCATION
+        ========================= -->
+
         <section
             class="section"
             id="location"
         >
+
             <div class="section-title">
-                พิกัดร้าน
+
+                <h2>
+                    พิกัดร้าน
+                </h2>
+
+                <p>
+                    เดินทางมาที่ Sugarview Cafe & Yum
+                </p>
+
             </div>
-            <a
-                href="#"
-                id="mapLink"
-                class="map-card"
-                target="_blank"
-                rel="noopener"
-            >
-                <div class="map-left">
-                    <div class="map-icon">
-                        📍
-                    </div>
-                    <div>
-                        <div class="platform-name">
-                            Google Maps
-                        </div>
-                        <div class="platform-description">
-                            ดูตำแหน่งร้าน
-                        </div>
-                    </div>
+
+            <div class="map-card">
+
+                <div class="map-icon">
+                    📍
                 </div>
-                <div class="arrow">
-                    ›
-                </div>
-            </a>
+
+                <h3>
+                    Google Maps
+                </h3>
+
+                <p>
+                    เปิดแผนที่และนำทางมายังร้าน
+                </p>
+
+                <a
+                    class="map-button"
+                    id="mapButton"
+                    href="#"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    เปิด Google Maps
+                </a>
+
+            </div>
+
         </section>
-        <!-- FOOTER -->
-        <footer>
-            ©
-            <span id="year"></span>
-            Sugarview Cafe & Yum
-        </footer>
+
     </main>
+
+
+    <!-- =========================
+         FOOTER
+    ========================= -->
+
+    <footer>
+
+        <strong>
+            Sugarview Cafe & Yum
+        </strong>
+
+        <br>
+
+        <span>
+            Cafe • Food • Yum
+        </span>
+
+    </footer>
+
+
     <script>
+
         /* =========================
-           PLATFORM ICONS
-        ========================== */
-        const platformIcons = {
-            lineman: "🟢",
-            grabfood: "🟩",
-            shopeefood: "🟠",
-            foodpanda: "🐼"
-        };
+           HTML ESCAPE
+        ========================= */
+
+        function escapeHTML(value) {
+
+            return String(value ?? "")
+                .replace(/&/g, "&amp;")
+                .replace(/</g, "&lt;")
+                .replace(/>/g, "&gt;")
+                .replace(/"/g, "&quot;")
+                .replace(/'/g, "&#039;");
+
+        }
+
+
         /* =========================
-           LOAD JSON
-        ========================== */
-        async function loadShopData() {
+           LOAD PLATFORM.JSON
+        ========================= */
+
+        async function loadWebsiteData() {
+
             try {
-                const response =
-                    await fetch("./platform.json", {
+
+                const response = await fetch(
+                    "./platform.json",
+                    {
                         cache: "no-store"
-                    });
+                    }
+                );
+
                 if (!response.ok) {
                     throw new Error(
-                        "Cannot load platform.json"
+                        "ไม่สามารถโหลด platform.json ได้"
                     );
                 }
-                const data =
-                    await response.json();
-                /* =========================
-                   SHOP
-                ========================== */
-                const shop =
-                    data.shop || {};
-                const statusText =
-                    document.getElementById(
-                        "shopStatus"
-                    );
-                const statusDot =
-                    document.getElementById(
-                        "statusDot"
-                    );
-                if (shop.open === true) {
-                    statusText.textContent =
-                        shop.open_text ||
-                        "เปิดให้บริการ";
-                    statusDot.style.background =
-                        "#34c759";
-                } else {
-                    statusText.textContent =
-                        shop.closed_text ||
-                        "ปิดให้บริการ";
-                    statusDot.style.background =
-                        "#ff3b30";
-                }
-                /* =========================
-                   GOOGLE MAPS
-                ========================== */
-                const map =
-                    data.google_maps || {};
-                const mapLink =
-                    document.getElementById(
-                        "mapLink"
-                    );
-                if (
-                    map.enabled === true &&
-                    map.url
-                ) {
-                    mapLink.href =
-                        map.url;
-                } else {
-                    mapLink.style.display =
-                        "none";
-                }
-                /* =========================
-                   PLATFORMS
-                ========================== */
-                const grid =
-                    document.getElementById(
-                        "platformGrid"
-                    );
-                grid.innerHTML = "";
-                const platforms =
-                    data.platforms || {};
-                let enabledCount = 0;
-                Object.entries(platforms)
-                    .forEach(
-                        ([key, platform]) => {
-                            /*
-                             * ถ้า enabled = false
-                             * จะไม่แสดงบนเว็บไซต์
-                             */
-                            if (
-                                platform.enabled !== true
-                            ) {
-                                return;
-                            }
-                            /*
-                             * ต้องมี URL
-                             */
-                            if (!platform.url) {
-                                return;
-                            }
-                            enabledCount++;
-                            const card =
-                                document.createElement(
-                                    "a"
-                                );
-                            card.className =
-                                "platform-card";
-                            card.href =
-                                platform.url;
-                            card.target =
-                                "_blank";
-                            card.rel =
-                                "noopener";
-                            const icon =
-                                platform.icon ||
-                                platformIcons[key] ||
-                                "🍴";
-                            card.innerHTML = `
-                                <div class="platform-left">
-                                    <div class="platform-icon">
-                                        ${icon}
-                                    </div>
-                                    <div>
-                                        <div class="platform-name">
-                                            ${escapeHTML(
-                                                platform.name ||
-                                                key
-                                            )}
-                                        </div>
-                                        <div class="platform-description">
-                                            ${escapeHTML(
-                                                platform.description ||
-                                                "สั่งอาหาร"
-                                            )}
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="arrow">
-                                    ›
-                                </div>
-                            `;
-                            grid.appendChild(card);
-                        }
-                    );
-                if (enabledCount === 0) {
-                    grid.innerHTML = `
-                        <div class="empty">
-                            ขณะนี้ยังไม่มี
-                            ช่องทางสั่งอาหาร
-                        </div>
-                    `;
-                }
+
+                const data = await response.json();
+
+                renderShop(data.shop);
+
+                renderPlatforms(
+                    data.platforms
+                );
+
+                renderGoogleMaps(
+                    data.google_maps
+                );
+
+                document.title =
+                    data.shop?.name ||
+                    "Sugarview Cafe & Yum";
+
             } catch (error) {
+
                 console.error(error);
+
                 document.getElementById(
                     "platformGrid"
                 ).innerHTML = `
                     <div class="empty">
                         ไม่สามารถโหลดข้อมูลร้านได้
+                        <br>
+                        กรุณาตรวจสอบไฟล์ platform.json
                     </div>
                 `;
+
             }
+
         }
+
+
         /* =========================
-           SECURITY
-        ========================== */
-        function escapeHTML(value) {
-            return String(value)
-                .replaceAll("&", "&amp;")
-                .replaceAll("<", "&lt;")
-                .replaceAll(">", "&gt;")
-                .replaceAll('"', "&quot;")
-                .replaceAll("'", "&#039;");
+           SHOP STATUS
+        ========================= */
+
+        function renderShop(shop) {
+
+            const status =
+                document.getElementById(
+                    "shopStatus"
+                );
+
+            const text =
+                document.getElementById(
+                    "statusText"
+                );
+
+            const isOpen =
+                shop?.open === true;
+
+            text.textContent =
+                isOpen
+                    ? (
+                        shop.open_text ||
+                        "เปิดให้บริการ"
+                    )
+                    : (
+                        shop.closed_text ||
+                        "ปิดให้บริการ"
+                    );
+
+            if (!isOpen) {
+                status.classList.add("closed");
+            }
+
         }
+
+
         /* =========================
-           MENU
-        ========================== */
-        const menuBtn =
+           PLATFORMS
+        ========================= */
+
+        function renderPlatforms(platforms) {
+
+            const grid =
+                document.getElementById(
+                    "platformGrid"
+                );
+
+            if (!platforms) {
+
+                grid.innerHTML = `
+                    <div class="empty">
+                        ยังไม่มีข้อมูลแพลตฟอร์ม
+                    </div>
+                `;
+
+                return;
+            }
+
+            const enabledPlatforms =
+                Object.values(platforms)
+                    .filter(
+                        platform =>
+                            platform &&
+                            platform.enabled === true
+                    );
+
+            if (enabledPlatforms.length === 0) {
+
+                grid.innerHTML = `
+                    <div class="empty">
+                        ขณะนี้ยังไม่มีช่องทางสั่งอาหารออนไลน์
+                    </div>
+                `;
+
+                return;
+            }
+
+            grid.innerHTML =
+                enabledPlatforms
+                    .map(platform => {
+
+                        const name =
+                            escapeHTML(
+                                platform.name
+                            );
+
+                        const description =
+                            escapeHTML(
+                                platform.description
+                            );
+
+                        const icon =
+                            platform.icon || "🍽️";
+
+                        const url =
+                            escapeHTML(
+                                platform.url || "#"
+                            );
+
+                        let iconHTML =
+                            escapeHTML(icon);
+
+                        /*
+                         * รองรับทั้ง Emoji
+                         * และรูปภาพจาก URL
+                         */
+
+                        if (
+                            typeof icon === "string" &&
+                            (
+                                icon.startsWith(
+                                    "http://"
+                                ) ||
+                                icon.startsWith(
+                                    "https://"
+                                ) ||
+                                icon.startsWith("./")
+                            )
+                        ) {
+
+                            iconHTML = `
+                                <img
+                                    src="${icon}"
+                                    alt="${name}"
+                                >
+                            `;
+
+                        }
+
+                        return `
+
+                            <article
+                                class="platform-card"
+                            >
+
+                                <div>
+
+                                    <div
+                                        class="platform-icon"
+                                    >
+                                        ${iconHTML}
+                                    </div>
+
+                                    <div
+                                        class="platform-info"
+                                    >
+
+                                        <h3>
+                                            ${name}
+                                        </h3>
+
+                                        <p>
+                                            ${description}
+                                        </p>
+
+                                    </div>
+
+                                </div>
+
+                                <a
+                                    class="platform-button"
+                                    href="${url}"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                >
+                                    เปิด ${name}
+                                </a>
+
+                            </article>
+
+                        `;
+
+                    })
+                    .join("");
+
+        }
+
+
+        /* =========================
+           GOOGLE MAPS
+        ========================= */
+
+        function renderGoogleMaps(map) {
+
+            const button =
+                document.getElementById(
+                    "mapButton"
+                );
+
+            if (
+                map &&
+                map.enabled === true &&
+                map.url
+            ) {
+
+                button.href = map.url;
+
+                button.style.display =
+                    "inline-flex";
+
+            } else {
+
+                button.style.display =
+                    "none";
+
+            }
+
+        }
+
+
+        /* =========================
+           MOBILE MENU
+        ========================= */
+
+        const menuButton =
             document.getElementById(
-                "menuBtn"
+                "menuButton"
             );
-        const mobileMenu =
+
+        const navLinks =
             document.getElementById(
-                "mobileMenu"
+                "navLinks"
             );
-        menuBtn.addEventListener(
+
+        menuButton.addEventListener(
             "click",
             () => {
-                mobileMenu.classList.toggle(
+
+                navLinks.classList.toggle(
                     "active"
                 );
+
             }
         );
-        document
-            .querySelectorAll(
-                ".mobile-menu a"
-            )
+
+
+        navLinks
+            .querySelectorAll("a")
             .forEach(link => {
+
                 link.addEventListener(
                     "click",
                     () => {
-                        mobileMenu.classList.remove(
+
+                        navLinks.classList.remove(
                             "active"
                         );
+
                     }
                 );
+
             });
-        /* =========================
-           YEAR
-        ========================== */
-        document.getElementById(
-            "year"
-        ).textContent =
-            new Date().getFullYear();
+
+
         /* =========================
            START
-        ========================== */
-        loadShopData();
+        ========================= */
+
+        loadWebsiteData();
+
     </script>
+
 </body>
 </html>
