@@ -1,1 +1,54 @@
+{
+    "shop": {
+        "name": "Sugarview Cafe & Yum"
+    },
 
+    "google_maps": {
+        "enabled": true,
+        "url": "https://maps.app.goo.gl/chcUEq6u5oQdARTX9?g_st=ic"
+    },
+
+    "platforms": {
+
+        "grabfood": {
+            "name": "GrabFood",
+            "enabled": true,
+            "icon": "🟢",
+            "description": "สั่งอาหารผ่าน GrabFood",
+            "url": "https://app.grab.com/s/NVJraqIv"
+        },
+
+        "lineman": {
+            "name": "LINE MAN",
+            "enabled": true,
+            "icon": "🟢",
+            "description": "สั่งอาหารผ่าน LINE MAN",
+            "url": "https://lin.ee/rxDTKIs?openExternalBrowser=1"
+        },
+
+        "shopeefood": {
+            "name": "ShopeeFood",
+            "enabled": false,
+            "icon": "🟠",
+            "description": "สั่งอาหารผ่าน ShopeeFood",
+            "url": "https://shopeefood.co.th/"
+        },
+
+        "foodpanda": {
+            "name": "foodpanda",
+            "enabled": false,
+            "icon": "🐼",
+            "description": "สั่งอาหารผ่าน foodpanda",
+            "url": "https://www.foodpanda.co.th/"
+        },
+
+        "wongnai": {
+            "name": "Wongnai",
+            "enabled": false,
+            "icon": "🍴",
+            "description": "ดูร้านบน Wongnai",
+            "url": "https://www.wongnai.com/"
+        }
+
+    }
+}
